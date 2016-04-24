@@ -19,7 +19,7 @@ public class OrderLogic {
 				serviceA();
 			}
 		};
-		tA.start();
+		
 		// call Service B{
 		// }
 		Thread tB = new Thread() {
@@ -27,6 +27,8 @@ public class OrderLogic {
 				serviceB();
 			}
 		};
+		
+		tA.start();
 		tB.start();
 
 		try {
@@ -74,3 +76,34 @@ public class OrderLogic {
 	}
 
 }
+
+/*
+Test1:
+Inside serviceA() -1
+Inside serviceB() -1
+Inside serviceB() -2
+Inside serviceA() -2
+Inside serviceB() -3
+Inside serviceA() -3
+Inside serviceC()
+
+Test2:
+Inside serviceA() -1
+Inside serviceB() -1
+Inside serviceA() -2
+Inside serviceB() -2
+Inside serviceB() -3
+Inside serviceA() -3
+Inside serviceC()
+
+Test3:
+Inside serviceA() -1
+Inside serviceB() -1
+Inside serviceA() -2
+Inside serviceB() -2
+Inside serviceA() -3
+Inside serviceB() -3
+Inside serviceC()
+
+*
+*/
